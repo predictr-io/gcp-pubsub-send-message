@@ -1,0 +1,32 @@
+name: 'GCP Pub/Sub Send Message'
+description: 'Publish messages to Google Cloud Pub/Sub topics'
+author: 'predictr-io'
+
+branding:
+  icon: 'send'
+  color: 'blue'
+
+inputs:
+  project-id:
+    description: 'GCP project ID'
+    required: true
+  topic-name:
+    description: 'Pub/Sub topic name (not the full path, just the topic name)'
+    required: true
+  message:
+    description: 'Message data to publish (string)'
+    required: true
+  attributes:
+    description: 'Message attributes as JSON object (e.g., {"key": "value"})'
+    required: false
+  ordering-key:
+    description: 'Ordering key for ordered message delivery (optional)'
+    required: false
+
+outputs:
+  message-id:
+    description: 'Message ID assigned by Pub/Sub'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
