@@ -341,67 +341,6 @@ The service account or Workload Identity needs:
 
 **Predefined Role:** `roles/pubsub.publisher`
 
-## Development
-
-### Setup
-
-Clone and install dependencies:
-
-```bash
-git clone https://github.com/predictr-io/gcp-pubsub-send-message.git
-cd gcp-pubsub-send-message
-npm install
-```
-
-### Development Scripts
-
-```bash
-# Build the action (compile TypeScript + bundle with dependencies)
-npm run build
-
-# Run TypeScript type checking
-npm run type-check
-
-# Run ESLint
-npm run lint
-
-# Run all checks (type-check + lint)
-npm run check
-```
-
-### Build Process
-
-The build process uses `@vercel/ncc` to compile TypeScript and bundle all dependencies into a single `dist/index.js` file:
-
-```bash
-npm run build
-```
-
-**Output:**
-- `dist/index.js` - Bundled action (includes Google Cloud SDK)
-- `dist/index.js.map` - Source map for debugging
-- `dist/licenses.txt` - License information for bundled dependencies
-
-**Important:** The `dist/` directory **must be committed** to git. GitHub Actions runs the compiled code directly from the repository.
-
-### Making Changes
-
-1. **Edit source files** in `src/`
-2. **Run checks** to validate:
-   ```bash
-   npm run check
-   ```
-3. **Build** to update `dist/`:
-   ```bash
-   npm run build
-   ```
-4. **Test locally** (optional) - Use the Pub/Sub emulator or a test project
-5. **Commit everything** including `dist/`:
-   ```bash
-   git add src/ dist/
-   git commit -m "Description of changes"
-   ```
-
 ## Version References
 
 Users can reference the action:
